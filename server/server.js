@@ -25,6 +25,9 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.get('/api/popular', async (req, res) => {
     const response = await axios.get('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', {
